@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: fastapi-neon-app
+    runtime: docker
+    env: python
+    buildCommand: docker build -t fastapi-neon-app .
+    startCommand: docker run -p 8000:8000 -e PORT=8000 fastapi-neon-app
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql+asyncpg://neondb_owner:npg_he9YPlp2sZSF@ep-shiny-surf-a4wvzbd6-pooler.us-east-1.aws.neon.tech/neondb?ssl=require

@@ -35,6 +35,9 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
 
 @app.post("/posts/")
 async def create_post(
